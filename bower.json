@@ -1,0 +1,8 @@
+{
+  "name": "img.js",
+  "version": "0.10.5",
+  "main": "dist/typeahead.bundle.js",
+  "dependencies": {
+    "jquery": ">=2.0"
+  }
+}

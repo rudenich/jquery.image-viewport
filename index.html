@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="src/jquery.image.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function(){
+           $('.img').imgFit();
+       });
+       /* $(window).on('load',function(){
+            var
+                    vpHeight = $(window).height(),
+                    vpWidth = $('body').innerWidth(),
+                    vpRatio = 0,
+                    img = $('.img'),
+                    imgHeight = img.height(),
+                    imgWidth = img.width(),
+                    imgRatio = imgWidth/imgHeight
+                    ;
+
+            $('.img-wrap').width(vpWidth).height(vpHeight);
+            bWidth = $('body').innerWidth();
+            vpRatio = vpWidth/vpHeight,
+            $('.img-wrap').width(bWidth);
+            if(img.data('vertical')!=undefined){
+                var value =img.data('vertical');
+                if(value=='top'){
+                    img.css({
+                        top:0,
+                        button:''
+                    });
+                }else if(value=='bottom'){
+                    img.css({
+                        top:'',
+                        button:0
+                    });
+                }
+            }
+            if(img.data('horisontal')!=undefined){
+                var value =img.data('horisontal');
+                if(value=='left'){
+                    img.css({
+                        left:0,
+                        right:'auto'
+                    });
+                }else if(value=='right'){
+                    img.css({
+                        left:'auto',
+                        right:0
+                    });
+                }
+            }
+
+            //if(bWidth<wHeight){
+            if(vpRatio<imgRatio){
+                img.height(vpHeight);
+            }else{
+                img.width(vpWidth);
+            }
+
+        });*/
+    </script>
+    <style>
+        body,html{
+            margin:0;
+            padding: 0;
+        }
+        .img-wrap{
+            overflow: hidden;
+            position: relative;
+        }
+        img{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .img{
+            transition: all 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .fading{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="img-wrap">
+    <img src="header.jpg" class="img" alt="" data-vertical="top" data-horizontal="right"/>
+    <img src="header1.jpg" class="img" alt="" data-vertical="top" data-horizontal="left"/>
+</div>
+
+x
+t
+CSS
+В CSS свойства transition и animation позволяют указывать функцию плавности.
+div {
+-webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1); }
+Редактировать на cubic-bezier.com.
+SCSS
+В Sass и SCSS анимации описывать гораздо проще — Compass избавляет от префиксов перед свойствами transition и animation, а расширение Compass Ceaser позволит указывать функцию плавности просто по имени, без кривых Безье.
+div {
+@include transition(all 600ms ceaser($easeInOutCubic)); }
+<script type="text/javascript">
+    setInterval(function(){
+        /*$('.img:last-child').animate({opacity:0},1500,function(){
+            $('.img:last-child').insertBefore($('.img:first-child'));
+            $('.img:first-child').css('opacity',1);
+        });*/
+        $('.img:last-child').addClass('fading');
+        setTimeout(function(){
+            $('.img:last-child').insertBefore($('.img:first-child'));
+            $('.img:first-child').removeClass('fading');
+        },1500)
+    },4000);
+</script>
+</body>
+</html>
