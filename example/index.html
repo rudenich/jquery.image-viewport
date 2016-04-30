@@ -1,66 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+
     <meta charset="UTF-8">
     <title>Document</title>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="src/jquery.image.js"></script>
     <script type="text/javascript">
        $(document).ready(function(){
-           $('.img').imgFit();
+           $('.img').imgFit({
+               parent:'.img-wrap'
+           });
        });
-       /* $(window).on('load',function(){
-            var
-                    vpHeight = $(window).height(),
-                    vpWidth = $('body').innerWidth(),
-                    vpRatio = 0,
-                    img = $('.img'),
-                    imgHeight = img.height(),
-                    imgWidth = img.width(),
-                    imgRatio = imgWidth/imgHeight
-                    ;
-
-            $('.img-wrap').width(vpWidth).height(vpHeight);
-            bWidth = $('body').innerWidth();
-            vpRatio = vpWidth/vpHeight,
-            $('.img-wrap').width(bWidth);
-            if(img.data('vertical')!=undefined){
-                var value =img.data('vertical');
-                if(value=='top'){
-                    img.css({
-                        top:0,
-                        button:''
-                    });
-                }else if(value=='bottom'){
-                    img.css({
-                        top:'',
-                        button:0
-                    });
-                }
-            }
-            if(img.data('horisontal')!=undefined){
-                var value =img.data('horisontal');
-                if(value=='left'){
-                    img.css({
-                        left:0,
-                        right:'auto'
-                    });
-                }else if(value=='right'){
-                    img.css({
-                        left:'auto',
-                        right:0
-                    });
-                }
-            }
-
-            //if(bWidth<wHeight){
-            if(vpRatio<imgRatio){
-                img.height(vpHeight);
-            }else{
-                img.width(vpWidth);
-            }
-
-        });*/
     </script>
     <style>
         body,html{
@@ -86,8 +38,8 @@
 </head>
 <body>
 <div class="img-wrap">
-    <img src="header.jpg" class="img" alt="" data-vertical="top" data-horizontal="right"/>
-    <img src="header1.jpg" class="img" alt="" data-vertical="top" data-horizontal="left"/>
+    <img src="header.jpg" class="img" alt="" data-vertical="top" data-horizontal="center"/>
+    <img src="header1.jpg" class="img" alt="" data-vertical="top" data-horizontal="center"/>
 </div>
 
 x
